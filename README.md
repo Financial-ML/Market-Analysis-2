@@ -101,6 +101,7 @@ We call the models every one bar and say if more than 50% of our models predict 
 
 ### Setup
 1. After traning the models [ML-Models](#ML-Models).
+1. Get your testing data from [Dataset](#Dataset).
 1. Download the code in Tester [(here)](https://github.com/Financial-ML/Market-Analysis-2/tree/master/Tester) in to your python project.
 1. Run the program and it will test the stratgy.
 
