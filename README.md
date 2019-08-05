@@ -88,6 +88,9 @@ Tool that use to test the strategy that has been developed outside MQL4 in pytho
 * We do it by build our algorithmic trading strategy in python.
 * And load our Models in Tester program.
 * Then calculate the profits by saving the enter price then subtract from it the close price.
+
+### Algorithmic Trading
+We call the models every one bar and say if more than 50% of our models predict the same take the predicted action.
 ### What we test
 1. Profit
 1. Total number of trades
