@@ -8,13 +8,14 @@ In Market Analysis 2 we upgrade Market Analysis to be better in  all of its comp
 
 * [Dataset](#Dataset)
 
+* [Feature-Calculator](#Feature-Calculator)
+
 * [ML-Models](#ML-Models)
 
-* [Feature-Calculator](#Feature-Calculator)
+* [Tester](#Tester)
 
 * [Connection](#Connection)
 
-* [Tester](#Tester)
 
 ## Dataset
 
