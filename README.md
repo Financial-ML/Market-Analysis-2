@@ -97,9 +97,9 @@ Tool that use to test the strategy that has been developed outside MQL4 in pytho
 1. Best trade
 
 ### Setup
-1.
-
+1. After traning the models [ML-Models](#ML-Models).
+1. Download the code in Tester [(here)](https://github.com/Financial-ML/Market-Analysis-2/tree/master/Tester) in to your python project.
+1. Run the program and it will test the stratgy.
 
 ## Connection
-
 
