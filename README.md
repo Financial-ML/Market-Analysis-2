@@ -16,6 +16,7 @@ In Market Analysis 2 we upgrade Market Analysis to be better in  all of its comp
 
 * [Connection](#Connection)
 
+**Note:** The order in setup is important.
 
 ## Dataset
 
@@ -77,4 +78,28 @@ Different Machine Learning models that we used to learn from the [Feature](#Feat
 1. After calculating the [Feature](#Feature-Calculator). copy the CSV file in to your python project.
 1. Download the code in ML-Models [(here)](https://github.com/Financial-ML/Market-Analysis-2/tree/master/ML-Models) in to your python project.
 1. Run the program and it will generate the PKL file.
+
+## Tester
+
+### Introduction
+Tool that use to test the strategy that has been developed outside MQL4 in python.
+
+### How we do it
+* We do it by build our algorithmic trading strategy in python.
+* And load our Models in Tester program.
+* Then calculate the profits by saving the enter price then subtract from it the close price.
+### What we test
+1. Profit
+1. Total number of trades
+1. Sum of wining trades
+1. Sum of loss trades
+1. Max drawdown
+1. Best trade
+
+### Setup
+1.
+
+
+## Connection
+
 
