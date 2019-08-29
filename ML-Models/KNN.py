@@ -22,14 +22,12 @@ columns = ['momentum3close','momentum4close'
 ,'will9R','will10R','proc12close','proc13close'
 ,'proc14close','proc15close','wadl15close','adosc2AD'
 ,'adosc3AD','adosc4AD','adosc5AD','macd1530','cci15close'
-,'bollinger15upper','bollinger15mid','bollinger15lower','heiken150'
-,'heiken151','heiken152','heiken153','paverage2open'
+,'bollinger15upper','bollinger15mid','bollinger15lower','paverage2open'
 ,'paverage2high','paverage2low','paverage2close','slope3high','slope4high','slope5high'
 ,'slope10high','slope20high','slope30high'
 ,'fourier10a0','fourier10a1','fourier10b1','fourier10w','fourier20a0','fourier20a1','fourier20b1','fourier20w','fourier30a0'
 ,'fourier30a1','fourier30b1','fourier30w','sine5a0','sine5b1','sine5w','sine6a0','sine6b1','sine6w','open','high','low','close']
-
-labels = df['market1Market'].values
+labels = df['market0Market'].values
 features = df[list(columns)].values
 
 Standarization = True
