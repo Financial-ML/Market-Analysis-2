@@ -91,7 +91,7 @@ Tool that use to test the strategy that has been developed outside MQL4 in pytho
 * Then calculate the profits by saving the enter price then subtract from it the close price.
 
 ### Algorithmic Trading
-We call the models every one bar and say if more than 50% of our models predict the same take the predicted action.
+We call the models (Decision Tree and RandomForest) every one hour and say if the first 10 min is the same prediction do the predicted action.
 ### What we test
 1. Profit
 1. Total number of trades
