@@ -22,7 +22,8 @@ In Market Analysis 2 we upgrade Market Analysis to be better in  all of its comp
 
 ### Introduction
 
-Create a Dataset for any symbol in any period of time in Forex market (Metatrader 4) that contain the basic [Features](#Features).
+Create a Dataset for any symbol in any period of time in Forex market (Metatrader 4) that contain the basic Features
+(open, high, low, close).
 
 ### How we do it
 We do it by pulling data from MQL4 in to CSV file , the data is pulled using MQL4 build in functions that create our Features.
