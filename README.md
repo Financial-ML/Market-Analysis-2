@@ -107,4 +107,10 @@ We call the models (Decision Tree and RandomForest) every one hour and say if th
 1. Run the program and it will test the stratgy.
 
 ## Connection
-
+### Introduction
+Connect the strategy that has been developed in Python with fxcm company in a real time connection the structure has been developed to run on cloud every 1 hour.
+### How we do it
+* Pull the basic data from fxcm by connect to a generated token you can git it from [(here)](https://www.fxcm.com/markets/).
+* After pulling data we predict the price using our machine learning models.
+* All of this process is done in the cloud every 1 hour. 
+### Setup
