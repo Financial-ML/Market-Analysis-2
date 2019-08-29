@@ -114,3 +114,14 @@ Connect the strategy that has been developed in Python with fxcm company in a re
 * After pulling data we predict the price using our machine learning models.
 * All of this process is done in the cloud every 1 hour. 
 ### Setup
+1. Create a new Python project.
+1. Download the code in it [(here)]().
+1. Copy the generated models from [ML-Models](#ML-Models).
+1. Put it in a any cloud you are familiar with it.
+1. If you use ubuntu use crontab to set a time to run the code.
+1. the timer that are used in crontab is (11 * * * * * ) it means run the code every hour in minute 11.
+
+
+
+
+
