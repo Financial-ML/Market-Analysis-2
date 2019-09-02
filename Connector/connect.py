@@ -4,11 +4,12 @@ from sklearn.externals import joblib
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 import fxcmpy
+import time
 #------------------------------------------------------------------------------
 
 
 
-TOKEN = "f1f04fd3535372b46fbb45b9125a2bf9c7a15f84"
+TOKEN = "2fab528ed0c184c625ee0d1970058a1651012b93"
         
 con = fxcmpy.fxcmpy(access_token=TOKEN, log_level='error')
         
@@ -162,35 +163,36 @@ print(a)
 print(a1)
         
 if con.is_connected() == True:
-    if a[0]==a1[0] and a[1]==a1[1]:
-        if a[0]==1 and a[1]==1:
-            print("buy")
-            if con.open_pos == {}:
+    if a[0]==1 and a[1]==1 and a1[0]==1 and a1[1]==1:
+        print("buy")
+        if con.open_pos == {}:
+            con.create_market_buy_order('EUR/USD', 10)
+        else:
+            tradeId = con.get_open_trade_ids()[0]
+            pos = con.get_open_position(tradeId)
+            if pos.get_isBuy()==False:
+                con.close_all_for_symbol('EUR/USD')
+                time.sleep(5)
                 con.create_market_buy_order('EUR/USD', 10)
-            else:
-                tradeId = con.get_open_trade_ids()[0]
-                pos = con.get_open_position(tradeId)
-                if pos.get_isBuy()==False:
-                    con.close_all_for_symbol('EUR/USD')
-                    con.create_market_buy_order('EUR/USD', 10)
-                #see if there is no order enter one
-                #if there is order buy keep it else complet
-                #close sell order
-                #open order buy
-        elif a[0]==0 and a[1]==0:
-            print("sell")
-            if con.open_pos == {}:
+            #see if there is no order enter one
+            #if there is order buy keep it else complet
+            #close sell order
+            #open order buy
+    if a[0]==0 and a[1]==0 and a1[0]==0 and a1[1]==0:
+        print("sell")
+        if con.open_pos == {}:
+            con.create_market_sell_order('EUR/USD', 10)
+        else:
+            tradeId = con.get_open_trade_ids()[0]
+            pos = con.get_open_position(tradeId)
+            if pos.get_isBuy()==True:
+                con.close_all_for_symbol('EUR/USD')
+                time.sleep(5)
                 con.create_market_sell_order('EUR/USD', 10)
-            else:
-                tradeId = con.get_open_trade_ids()[0]
-                pos = con.get_open_position(tradeId)
-                if pos.get_isBuy()==True:
-                    con.close_all_for_symbol('EUR/USD')
-                    con.create_market_sell_order('EUR/USD', 10)
-                #see if there is order
-                #see the type if sell keep it else complet
-                #close order buy
-                #open order sell
+            #see if there is order
+            #see the type if sell keep it else complet
+            #close order buy
+            #open order sell
 else:
     print("error")       
 #------------------------------------------------------------------------------
