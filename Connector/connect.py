@@ -116,7 +116,6 @@ try:
             
     masterFrameCleaned = masterFrameCleaned.dropna(axis=1,thresh=threshold)
     masterFrameCleaned = masterFrameCleaned.dropna(axis=0)
-    masterFrameCleaned.to_csv('calculated_C.csv')
     print('completed')
             
     columns = ['momentum3close','momentum4close'
