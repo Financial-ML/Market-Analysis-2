@@ -201,7 +201,8 @@ try:
                     #open order sell
         else:
             print('No connection with fxcm')   
-        
+    else:
+        print('Market is close...')
 except Exception as e:
     
     print("code does not work:",e)
