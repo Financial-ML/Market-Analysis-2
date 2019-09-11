@@ -24,13 +24,6 @@ try:
         df = df[['open','high','low','close','volume']]
         df = df[~df.index.duplicated()]
         prices = df.copy()
-        #-----------------------------------------\
-        #calculate lot number
-        money = con.get_accounts().T.iloc[2]
-        money = float(money)
-        lot = money / 100
-        lot = math.floor(lot)
-        #-----------------------------------------\
     else:
         print('No connection with fxcm')
     
@@ -179,6 +172,13 @@ try:
         
         
         if con.is_connected() == True:
+            #-----------------------------------------\
+            #calculate lot number
+            money = con.get_accounts().T.iloc[2]
+            money = float(money)
+            lot = money / 100
+            lot = math.floor(lot)
+            #-----------------------------------------\
             if a[0]==1 and a[1]==1 and a1[0]==1 and a1[1]==1:
                 print("buy")
                 if con.open_pos == {}:
