@@ -1,0 +1,3 @@
+11 * * * * cd connect && /usr/bin/python3.6 connect.py >> test.out
+0 0 * * * cd connect && rm test.out
+30 * * * * sudo reboot
