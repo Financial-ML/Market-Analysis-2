@@ -6,11 +6,12 @@ from sklearn.preprocessing import StandardScaler
 import fxcmpy
 import time
 import datetime as dt
+import math
 #------------------------------------------------------------------------------
 
 try:
     print(dt.datetime.now())
-    TOKEN = "2fab528ed0c184c625ee0d1970058a1651012b93"
+    TOKEN = "a46733f1195b76f6061ae9435cf7011744d3f1c7"
             
     con = fxcmpy.fxcmpy(access_token=TOKEN, log_level='error')
     
@@ -23,6 +24,13 @@ try:
         df = df[['open','high','low','close','volume']]
         df = df[~df.index.duplicated()]
         prices = df.copy()
+        #-----------------------------------------\
+        #calculate lot number
+        money = con.get_accounts().T.iloc[2]
+        money = float(money)
+        lot = money / 100
+        lot = math.floor(lot)
+        #-----------------------------------------\
     else:
         print('No connection with fxcm')
     
@@ -167,19 +175,21 @@ try:
             
         print(a)
         print(a1)
-                
+        
+        
+        
         if con.is_connected() == True:
             if a[0]==1 and a[1]==1 and a1[0]==1 and a1[1]==1:
                 print("buy")
                 if con.open_pos == {}:
-                    con.create_market_buy_order('EUR/USD', 10)
+                    con.create_market_buy_order('EUR/USD', lot)
                 else:
                     tradeId = con.get_open_trade_ids()[0]
                     pos = con.get_open_position(tradeId)
                     if pos.get_isBuy()==False:
                         con.close_all_for_symbol('EUR/USD')
                         time.sleep(5)
-                        con.create_market_buy_order('EUR/USD', 10)
+                        con.create_market_buy_order('EUR/USD', lot)
                     #see if there is no order enter one
                     #if there is order buy keep it else complet
                     #close sell order
@@ -187,14 +197,14 @@ try:
             if a[0]==0 and a[1]==0 and a1[0]==0 and a1[1]==0:
                 print("sell")
                 if con.open_pos == {}:
-                    con.create_market_sell_order('EUR/USD', 10)
+                    con.create_market_sell_order('EUR/USD', lot)
                 else:
                     tradeId = con.get_open_trade_ids()[0]
                     pos = con.get_open_position(tradeId)
                     if pos.get_isBuy()==True:
                         con.close_all_for_symbol('EUR/USD')
                         time.sleep(5)
-                        con.create_market_sell_order('EUR/USD', 10)
+                        con.create_market_sell_order('EUR/USD', lot)
                     #see if there is order
                     #see the type if sell keep it else complet
                     #close order buy
