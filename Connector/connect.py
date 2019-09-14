@@ -30,7 +30,7 @@ try:
     
     market_alive = prices.index[-1].minute
     
-    if market_alive == 11:
+    if market_alive == 5:
         prices.index=pd.to_datetime(prices.index)
         prices['B'] = prices.index.minute
         for i in range(0,len(prices)):
